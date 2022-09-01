@@ -58,6 +58,16 @@ class LinksController < ApplicationController
     end
   end
 
+  def like
+    @link = Link.find(params[:id])
+    if params[:format] == 'like'
+      @link.liked_by current_user
+    elsif params[:format] == 'unlike'
+      @link.unliked_by current_user
+    end
+    redirect_back fallback_location: root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
