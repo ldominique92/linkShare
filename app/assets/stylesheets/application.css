@@ -52,10 +52,15 @@ table.links-list td {
     padding: 8px;
 }
 
-section.login {
+section.form-fields {
     border: 1px solid #2F4F4F;
     border-style: dashed;
     width: 30%;
+}
+
+section.bottom-links {
+    width: 30%;
+    margin-top: 20px;
 }
 
 .row {
@@ -65,6 +70,10 @@ section.login {
 .col {
     flex: 1;
     padding: 5px;
+}
+
+section.bottom-links .col {
+    text-align: right;
 }
 
 a {
@@ -111,4 +120,8 @@ a.copyright {
     bottom: 10px;
     font-size: x-small;
     right: 10px;
+}
+
+div.alert div.alert-notice {
+    color: red;
 }
