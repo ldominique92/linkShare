@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LinkShare</title>
+    <title>Link Share</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,17 +15,15 @@
       <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
 
-    <% if user_signed_in? %>
-      <ul>
+    <ul class="login">
+      <% if user_signed_in? %>
         <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-      </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to 'Sign up', new_user_registration_path%></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-      </ul>
-    <% end %>
+      <% else %>
+          <li><%= link_to 'Sign up', new_user_registration_path%></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>

@@ -1,23 +1,26 @@
 <h1>Links</h1>
-<% @links.each do |link| %>
-  <div>
-    <h2>
-      <%= link_to link.title, link %><br>
+<table class="links-list">
+  <% @links.each do |link| %>
+  <tr>
+    <td>
+      <%= link_to link.title, link %>
+    </td>
+    <td>
       <small> Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small>
-    </h2>
-
-  <div>
-    <a href="<%= link.url %>">Go to Link</a>
-      <% if user_signed_in? %>
+    </td>
+    <% if user_signed_in? %>
+      <td>
         <% if current_user.liked? link %>
-          <%= button_to 'unlike', like_link_path(link, 'unlike'), method: :put, remote: :true %>
+           <%= button_to 'unlike', like_link_path(link, 'unlike'), method: :put, remote: :true, class: 'action unlike' %>  
         <% else %>
-          <%= button_to 'like', like_link_path(link, 'like'), method: :put, remote: :true %>
+          <%= button_to 'like', like_link_path(link, 'like'), method: :put, remote: :true, class: 'action like' %>
         <% end %>
-        <%= link.get_upvotes.size %>
-      <% end %>
-  </div>
-  </div>
-<% end %>
+        <em class="likes"><%= link.get_upvotes.size %><em>
+      </td>
+    <% end %>
+    </tr>
+  <% end %>
+</table>
 <br>
 <%= link_to 'New Link', new_link_path %>
+<a href="https://www.flaticon.com/free-icons/heart" title="heart icons" class="copyright">Heart icons created by Kiranshastry - Flaticon</a>
