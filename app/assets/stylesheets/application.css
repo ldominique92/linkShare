@@ -122,10 +122,6 @@ a.copyright {
     right: 10px;
 }
 
-div.alert div.alert-notice {
-    color: red;
-}
-
 div.error-messages {
     color: red;
     flex: 2;
