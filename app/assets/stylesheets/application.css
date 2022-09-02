@@ -125,3 +125,12 @@ a.copyright {
 div.alert div.alert-notice {
     color: red;
 }
+
+div.error-messages {
+    color: red;
+    flex: 2;
+}
+
+div.error-messages ul {
+    padding-inline-start: 20px;
+}
